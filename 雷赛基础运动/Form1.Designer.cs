@@ -106,6 +106,7 @@
             this.lblNegLimit = new System.Windows.Forms.Label();
             this.panel_PosLimit = new System.Windows.Forms.Panel();
             this.lblPosLimit = new System.Windows.Forms.Label();
+            this.btn_Interp = new System.Windows.Forms.Button();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -863,6 +864,16 @@
             this.panel_PosLimit.Size = new System.Drawing.Size(28, 25);
             this.panel_PosLimit.TabIndex = 11;
             //
+            // btn_Interp
+            //
+            this.btn_Interp.Location = new System.Drawing.Point(820, 16);
+            this.btn_Interp.Name = "btn_Interp";
+            this.btn_Interp.Size = new System.Drawing.Size(110, 32);
+            this.btn_Interp.TabIndex = 12;
+            this.btn_Interp.Text = "插补运动";
+            this.btn_Interp.UseVisualStyleBackColor = true;
+            this.btn_Interp.Click += new System.EventHandler(this.btn_Interp_Click);
+            //
             // timer1
             //
             this.timer1.Interval = 100;
@@ -874,6 +885,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(948, 630);
             this.Controls.Add(this.groupBox4);
+            this.Controls.Add(this.btn_Interp);
             this.Controls.Add(this.panel_PosLimit);
             this.Controls.Add(this.lblPosLimit);
             this.Controls.Add(this.panel_NegLimit);
@@ -984,6 +996,7 @@
         private System.Windows.Forms.Label lblNegLimit;
         private System.Windows.Forms.Panel panel_PosLimit;
         private System.Windows.Forms.Label lblPosLimit;
+        private System.Windows.Forms.Button btn_Interp;
         private System.Windows.Forms.Timer timer1;
     }
 }

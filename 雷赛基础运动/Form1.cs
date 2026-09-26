@@ -52,7 +52,8 @@ namespace 雷赛基础运动
                 lbl_Connect.Text = "板卡已连接";
                 lbl_Connect.ForeColor = Color.Green;
 
-                ApplyProfile();  // 把界面上的速度参数与脉冲当量下发到卡
+                ApplyProfile();      // 把界面上的速度参数与脉冲当量下发到卡
+                ApplyHomeProfile();  // 把界面上的回零参数下发到卡
                 timer1.Start(); // 开启状态轮询
             }
             catch (Exception ex)
@@ -73,12 +74,19 @@ namespace 雷赛基础运动
 
         // ==================== 轴选择 ====================
 
-        // 切换轴号：加载该轴在 ini 中保存的参数并下发
+        // 切换轴号：先加载该轴在 ini 中保存的参数，再下发到控制卡
         private void cmbAxis_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (cmbAxis.SelectedItem == null) return;
-            Axis = (ushort)cmbAxis.SelectedIndex;
-            LoadConfig();
+            Axis = (ushort)cmbAxis.SelectedIndex; 
+
+            LoadConfig();      // 加载该轴配置到界面
+            if (isConnected)   // 连接成功后才下发参数
+            {
+                rtn = LTDMC.dmc_set_equiv(CardNo, Axis, Convert.ToDouble(txtEquiv.Text));
+                rtn = LTDMC.dmc_set_profile_unit(CardNo, Axis, Convert.ToDouble(txtMinVel.Text), Convert.ToDouble(txtMaxVel.Text), Convert.ToDouble(txtTacc.Text), Convert.ToDouble(txtTdec.Text), Convert.ToDouble(txtStopVel.Text));
+                rtn = LTDMC.nmc_set_home_profile(CardNo, Axis, 23, Convert.ToDouble(txtHomeVelLow.Text), Convert.ToDouble(txtHomeVelHigh.Text), Convert.ToDouble(txtHomeAcc.Text), Convert.ToDouble(txtHomeDec.Text), Convert.ToDouble(txtHomeOffset.Text));
+            }
         }
 
         // ==================== 配置文件读写 ====================
@@ -142,7 +150,7 @@ namespace 雷赛基础运动
             ApplyHomeProfile();
         }
 
-        // 把界面上的回零参数下发到控制卡
+        // 把界面上的回零参数下发到控制卡（home_mode=23 为总线回零模式）
         private void ApplyHomeProfile()
         {
             if (!isConnected) return;
@@ -153,9 +161,7 @@ namespace 雷赛基础运动
             double dec = ParseDouble(txtHomeDec.Text, "回零减速时间", 0.1);
             double offset = ParseDouble(txtHomeOffset.Text, "回零偏移", 0);
 
-            // 回零速度参数与回零偏移量（偏移使能打开，回零完成后偏移 position 作为原点位置）
-            LTDMC.dmc_set_home_profile_unit(CardNo, Axis, lowVel, highVel, acc, dec);
-            LTDMC.dmc_set_home_position_unit(CardNo, Axis, 1, offset);
+            LTDMC.nmc_set_home_profile(CardNo, Axis, 23, lowVel, highVel, acc, dec, offset);
         }
 
         // 启动回零：先下发回零参数，再触发回零运动
@@ -272,6 +278,22 @@ namespace 雷赛基础运动
         private void btn_JogNeg_MouseUp(object sender, MouseEventArgs e)
         {
             LTDMC.dmc_stop(CardNo, Axis, 0); // 停止点动运动
+        }
+
+        // 打开插补运动窗口（Form2）
+        private void btn_Interp_Click(object sender, EventArgs e)
+        {
+            if (!isConnected)
+            {
+                MessageBox.Show("板卡未连接，无法使用插补运动");
+                return;
+            }
+            // 把主界面的脉冲当量传给插补窗口，保证 X/Y 两轴当量一致
+            double equiv;
+            if (!double.TryParse(txtEquiv.Text, out equiv)) equiv = 1;
+
+            Form2 form2 = new Form2(CardNo, equiv);
+            form2.Show();
         }
 
         // ==================== 状态轮询 ====================
