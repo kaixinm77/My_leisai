@@ -9,13 +9,16 @@ namespace 雷赛基础运动
     public partial class Form1 : Form
     {
         // 板卡号与IP地址从 App.config 读取
-        private readonly ushort CardNo = Convert.ToUInt16(ConfigurationManager.AppSettings["CardNo"]);
+        private readonly ushort CardNo = Convert.ToUInt16(
+            ConfigurationManager.AppSettings["CardNo"]
+        );
         private readonly string IpAddress = ConfigurationManager.AppSettings["IpAddress"];
 
         private readonly IniFileHelper ini; // ini 配置文件操作
-        private short rtn;                   // 函数返回值
-        private ushort Axis;                 // 当前操作的轴号
-        private bool isConnected = false;   // 板卡是否已连接
+        private short rtn; // 函数返回值
+        private ushort Axis; // 当前操作的轴号
+        private bool isConnected = false; // 板卡是否已连接
+        private ushort on_off = 0;
 
         public Form1()
         {
@@ -43,8 +46,12 @@ namespace 雷赛基础运动
                 {
                     lbl_Connect.Text = "板卡连接失败";
                     lbl_Connect.ForeColor = Color.Red;
-                    MessageBox.Show("初始化板卡失败，请检查网线连接与 App.config 中的 IP 设置",
-                        "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show(
+                        "初始化板卡失败，请检查网线连接与 App.config 中的 IP 设置",
+                        "错误",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Error
+                    );
                     return;
                 }
 
@@ -52,8 +59,8 @@ namespace 雷赛基础运动
                 lbl_Connect.Text = "板卡已连接";
                 lbl_Connect.ForeColor = Color.Green;
 
-                ApplyProfile();      // 把界面上的速度参数与脉冲当量下发到卡
-                ApplyHomeProfile();  // 把界面上的回零参数下发到卡
+                ApplyProfile(); // 把界面上的速度参数与脉冲当量下发到卡
+                ApplyHomeProfile(); // 把界面上的回零参数下发到卡
                 timer1.Start(); // 开启状态轮询
             }
             catch (Exception ex)
@@ -77,15 +84,33 @@ namespace 雷赛基础运动
         // 切换轴号：先加载该轴在 ini 中保存的参数，再下发到控制卡
         private void cmbAxis_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (cmbAxis.SelectedItem == null) return;
-            Axis = (ushort)cmbAxis.SelectedIndex; 
+            if (cmbAxis.SelectedItem == null)
+                return;
+            Axis = (ushort)cmbAxis.SelectedIndex;
 
-            LoadConfig();      // 加载该轴配置到界面
-            if (isConnected)   // 连接成功后才下发参数
+            LoadConfig(); // 加载该轴配置到界面
+            if (isConnected) // 连接成功后才下发参数
             {
                 rtn = LTDMC.dmc_set_equiv(CardNo, Axis, Convert.ToDouble(txtEquiv.Text));
-                rtn = LTDMC.dmc_set_profile_unit(CardNo, Axis, Convert.ToDouble(txtMinVel.Text), Convert.ToDouble(txtMaxVel.Text), Convert.ToDouble(txtTacc.Text), Convert.ToDouble(txtTdec.Text), Convert.ToDouble(txtStopVel.Text));
-                rtn = LTDMC.nmc_set_home_profile(CardNo, Axis, 23, Convert.ToDouble(txtHomeVelLow.Text), Convert.ToDouble(txtHomeVelHigh.Text), Convert.ToDouble(txtHomeAcc.Text), Convert.ToDouble(txtHomeDec.Text), Convert.ToDouble(txtHomeOffset.Text));
+                rtn = LTDMC.dmc_set_profile_unit(
+                    CardNo,
+                    Axis,
+                    Convert.ToDouble(txtMinVel.Text),
+                    Convert.ToDouble(txtMaxVel.Text),
+                    Convert.ToDouble(txtTacc.Text),
+                    Convert.ToDouble(txtTdec.Text),
+                    Convert.ToDouble(txtStopVel.Text)
+                );
+                rtn = LTDMC.nmc_set_home_profile(
+                    CardNo,
+                    Axis,
+                    23,
+                    Convert.ToDouble(txtHomeVelLow.Text),
+                    Convert.ToDouble(txtHomeVelHigh.Text),
+                    Convert.ToDouble(txtHomeAcc.Text),
+                    Convert.ToDouble(txtHomeDec.Text),
+                    Convert.ToDouble(txtHomeOffset.Text)
+                );
             }
         }
 
@@ -153,7 +178,8 @@ namespace 雷赛基础运动
         // 把界面上的回零参数下发到控制卡（home_mode=23 为总线回零模式）
         private void ApplyHomeProfile()
         {
-            if (!isConnected) return;
+            if (!isConnected)
+                return;
 
             double lowVel = ParseDouble(txtHomeVelLow.Text, "回零低速", 10);
             double highVel = ParseDouble(txtHomeVelHigh.Text, "回零高速", 40);
@@ -186,7 +212,8 @@ namespace 雷赛基础运动
         // 把界面上的速度参数与脉冲当量下发到控制卡
         private void ApplyProfile()
         {
-            if (!isConnected) return;
+            if (!isConnected)
+                return;
 
             double minVel = ParseDouble(txtMinVel.Text, "最小速度", 0);
             double maxVel = ParseDouble(txtMaxVel.Text, "最大速度", 50);
@@ -202,7 +229,8 @@ namespace 雷赛基础运动
         private double ParseDouble(string text, string name, double defaultValue)
         {
             double v;
-            if (double.TryParse(text, out v)) return v;
+            if (double.TryParse(text, out v))
+                return v;
 
             MessageBox.Show($"【{name}】输入不正确，已使用默认值 {defaultValue}");
             return defaultValue;
@@ -290,7 +318,8 @@ namespace 雷赛基础运动
             }
             // 把主界面的脉冲当量传给插补窗口，保证 X/Y 两轴当量一致
             double equiv;
-            if (!double.TryParse(txtEquiv.Text, out equiv)) equiv = 1;
+            if (!double.TryParse(txtEquiv.Text, out equiv))
+                equiv = 1;
 
             Form2 form2 = new Form2(CardNo, equiv);
             form2.Show();
@@ -357,7 +386,24 @@ namespace 雷赛基础运动
                     tb_StateMachine.BackColor = Color.Red;
                     break;
             }
-
+            short diState = LTDMC.dmc_read_inbit(CardNo, 0);
+            if (diState == 0)
+            {
+                panel_Input.BackColor = Color.Green;
+            }
+            else
+            {
+                panel_Input.BackColor = Color.Red;
+            }
+            on_off = (ushort)LTDMC.dmc_read_outbit(CardNo, 0);
+            if (on_off == 0)
+            {
+                panel_Output.BackColor = Color.Green;
+            }
+            else
+            {
+                panel_Output.BackColor = Color.Red;
+            }
             // 读取总线状态（通道 2 为 EtherCAT 端口）
             ushort usErrorCode = 0;
             LTDMC.nmc_get_errcode(CardNo, 2, ref usErrorCode);
@@ -386,6 +432,19 @@ namespace 雷赛基础运动
 
             // 右限位（正限位）：触发时为红
             panel_PosLimit.BackColor = (state & 2) == 2 ? Color.Red : Color.Green;
+        }
+
+        private void panel_Output_Click(object sender, EventArgs e)
+        {
+            
+            if (on_off == 0)
+            {
+                LTDMC.dmc_write_outbit(CardNo, 0, 1);
+            }
+            else
+            {
+                LTDMC.dmc_write_outbit(CardNo, 0, 0);
+            }
         }
     }
 }

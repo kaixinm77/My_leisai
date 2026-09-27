@@ -571,6 +571,11 @@ namespace 雷赛基础运动
         // mode 3：比例速度软件插补（保底）
         // 每段把 X/Y 两轴速度按 dx:dy 比例分配、几乎同时启动 pmove，
         // 两轴加减速时间相同 → 轨迹为直线段；段与段之间有停顿。
+        // 注意：菱形/五角星这类"每个顶点都要换向"的形状，最容易踩两个坑：
+        //   ① 轴刚停稳就发新 pmove 会报 1002（CHECK_DOWN 未完成）→ 该轴不动，另一轴照走，轨迹直接歪掉
+        //   ② 起始/停止速度设 0 在总线轴上可能被拒绝 → profile 设置失败也不报，两轴速度比失效
+        // 所以这里：所有指令都检查返回值，pmove 对 1002/4 自动重试，min/stop 速度为 0 时
+        // 改用该轴最大速度的 5%（保持两轴比例一致，直线不弯）。
         private void RunProportional(List<PointF> pts, double minV, double maxV, double tacc, double tdec)
         {
             double lastX = startX, lastY = startY;
@@ -590,34 +595,82 @@ namespace 雷赛基础运动
                     double kx = Math.Abs(dx) / len;   // X 轴速度占比
                     double ky = Math.Abs(dy) / len;   // Y 轴速度占比
 
-                    double maxX = Math.Abs(maxV * dx / len);
-                    double maxY = Math.Abs(maxV * dy / len);
-                    double minX = Math.Min(minV * kx, maxX);
-                    double minY = Math.Min(minV * ky, maxY);
-                    double stopX = Math.Min(minV * kx, maxX);
-                    double stopY = Math.Min(minV * ky, maxY);
+                    double maxX = maxV * kx;
+                    double maxY = maxV * ky;
+                    double minX = FloorSpeed(minV * kx, maxX);
+                    double minY = FloorSpeed(minV * ky, maxY);
 
-                    LTDMC.dmc_set_profile_unit(CardNo, xAxis, minX, maxX, tacc, tdec, stopX);
-                    LTDMC.dmc_set_profile_unit(CardNo, yAxis, minY, maxY, tacc, tdec, stopY);
-                    LTDMC.dmc_pmove_unit(CardNo, xAxis, dx, 0); // 相对运动
-                    LTDMC.dmc_pmove_unit(CardNo, yAxis, dy, 0);
+                    // ① 设置速度曲线，失败必须立刻报（否则两轴速度比失效，轨迹弯曲）
+                    short rpx = LTDMC.dmc_set_profile_unit(CardNo, xAxis, minX, maxX, tacc, tdec, minX);
+                    short rpy = LTDMC.dmc_set_profile_unit(CardNo, yAxis, minY, maxY, tacc, tdec, minY);
+                    if (rpx != 0 || rpy != 0)
+                    {
+                        BeginInvoke(new Action(() => Fail("设置速度曲线 dmc_set_profile_unit（比例速度模式）", (short)(rpx != 0 ? rpx : rpy))));
+                        return;
+                    }
+
+                    // ② 下发运动，1002（轴未停稳）自动重试
+                    short rm = PmoveWithRetry(xAxis, dx);
+                    if (rm != 0)
+                    {
+                        BeginInvoke(new Action(() => Fail($"第 {i} 段 X 轴 pmove", rm)));
+                        return;
+                    }
+                    rm = PmoveWithRetry(yAxis, dy);
+                    if (rm != 0)
+                    {
+                        BeginInvoke(new Action(() => Fail($"第 {i} 段 Y 轴 pmove", rm)));
+                        return;
+                    }
+
                     WaitBothDone();
+                    Thread.Sleep(15); // 稳定后再发下一段，降低下一段报 1002 的概率
                 }
                 else if (Math.Abs(dx) > 1e-9) // 纯水平段
                 {
-                    LTDMC.dmc_set_profile_unit(CardNo, xAxis, minV, maxV, tacc, tdec, minV);
-                    LTDMC.dmc_pmove_unit(CardNo, xAxis, dx, 0);
+                    short r = LTDMC.dmc_set_profile_unit(CardNo, xAxis, FloorSpeed(minV, maxV), maxV, tacc, tdec, FloorSpeed(minV, maxV));
+                    if (r != 0) { BeginInvoke(new Action(() => Fail("设置速度曲线 dmc_set_profile_unit（水平段）", r))); return; }
+
+                    r = PmoveWithRetry(xAxis, dx);
+                    if (r != 0) { BeginInvoke(new Action(() => Fail($"第 {i} 段 X 轴 pmove", r))); return; }
                     WaitAxisDone(xAxis);
+                    Thread.Sleep(15);
                 }
                 else if (Math.Abs(dy) > 1e-9) // 纯垂直段
                 {
-                    LTDMC.dmc_set_profile_unit(CardNo, yAxis, minV, maxV, tacc, tdec, minV);
-                    LTDMC.dmc_pmove_unit(CardNo, yAxis, dy, 0);
+                    short r = LTDMC.dmc_set_profile_unit(CardNo, yAxis, FloorSpeed(minV, maxV), maxV, tacc, tdec, FloorSpeed(minV, maxV));
+                    if (r != 0) { BeginInvoke(new Action(() => Fail("设置速度曲线 dmc_set_profile_unit（垂直段）", r))); return; }
+
+                    r = PmoveWithRetry(yAxis, dy);
+                    if (r != 0) { BeginInvoke(new Action(() => Fail($"第 {i} 段 Y 轴 pmove", r))); return; }
                     WaitAxisDone(yAxis);
+                    Thread.Sleep(15);
                 }
 
                 lastX = tx;
                 lastY = ty;
+            }
+
+            // 起始/停止速度不能为 0（总线轴会拒绝或行为异常），为 0 时取该轴最大速度的 5%
+            double FloorSpeed(double v, double maxOfAxis)
+            {
+                if (v <= 0) return Math.Max(maxOfAxis * 0.05, 0.01);
+                return Math.Min(v, maxOfAxis);
+            }
+
+            // 带重试的 pmove：轴刚停止时控制器可能报 1002（轴 CHECK_DOWN 未完成）/4（运动中），
+            // 此时指令被拒绝、轴不会动 —— 必须等一下重发，否则另一轴照走、轨迹直接歪掉
+            short PmoveWithRetry(ushort axis, double dist)
+            {
+                short r = LTDMC.dmc_pmove_unit(CardNo, axis, dist, 0); // 相对运动
+                int attempts = 0;
+                while ((r == 1002 || r == 4 || r == 1001) && attempts < 30 && !stopDraw)
+                {
+                    Thread.Sleep(10);
+                    r = LTDMC.dmc_pmove_unit(CardNo, axis, dist, 0);
+                    attempts++;
+                }
+                return r;
             }
 
             // 等待两轴都停止

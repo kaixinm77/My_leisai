@@ -88,13 +88,13 @@
             this.lblCurVel = new System.Windows.Forms.Label();
             this.lblCurVelUnit = new System.Windows.Forms.Label();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.btn_ClearErr = new System.Windows.Forms.Button();
-            this.btn_Disable = new System.Windows.Forms.Button();
-            this.btn_Enable = new System.Windows.Forms.Button();
-            this.btn_Stop = new System.Windows.Forms.Button();
-            this.btn_JogPos = new System.Windows.Forms.Button();
-            this.btn_JogNeg = new System.Windows.Forms.Button();
             this.btn_Home = new System.Windows.Forms.Button();
+            this.btn_JogNeg = new System.Windows.Forms.Button();
+            this.btn_JogPos = new System.Windows.Forms.Button();
+            this.btn_Stop = new System.Windows.Forms.Button();
+            this.btn_Enable = new System.Windows.Forms.Button();
+            this.btn_Disable = new System.Windows.Forms.Button();
+            this.btn_ClearErr = new System.Windows.Forms.Button();
             this.label8 = new System.Windows.Forms.Label();
             this.cmbAxis = new System.Windows.Forms.ComboBox();
             this.lbl_Connect = new System.Windows.Forms.Label();
@@ -108,14 +108,18 @@
             this.lblPosLimit = new System.Windows.Forms.Label();
             this.btn_Interp = new System.Windows.Forms.Button();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.panel_Input = new System.Windows.Forms.Panel();
+            this.panel_Output = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.SuspendLayout();
-            //
+            // 
             // groupBox1
-            //
+            // 
             this.groupBox1.Controls.Add(this.btn_LoadConfig);
             this.groupBox1.Controls.Add(this.btn_SaveConfig);
             this.groupBox1.Controls.Add(this.txtStopVel);
@@ -145,201 +149,9 @@
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "运动参数";
-            //
-            // lblDis
-            //
-            this.lblDis.AutoSize = true;
-            this.lblDis.Location = new System.Drawing.Point(10, 41);
-            this.lblDis.Name = "lblDis";
-            this.lblDis.Size = new System.Drawing.Size(67, 15);
-            this.lblDis.TabIndex = 0;
-            this.lblDis.Text = "运动距离";
-            //
-            // txtDis
-            //
-            this.txtDis.Location = new System.Drawing.Point(95, 38);
-            this.txtDis.Name = "txtDis";
-            this.txtDis.Size = new System.Drawing.Size(110, 25);
-            this.txtDis.TabIndex = 1;
-            this.txtDis.Text = "100";
-            //
-            // lblDisUnit
-            //
-            this.lblDisUnit.AutoSize = true;
-            this.lblDisUnit.Location = new System.Drawing.Point(212, 41);
-            this.lblDisUnit.Name = "lblDisUnit";
-            this.lblDisUnit.Size = new System.Drawing.Size(37, 15);
-            this.lblDisUnit.TabIndex = 2;
-            this.lblDisUnit.Text = "unit";
-            //
-            // lblEquiv
-            //
-            this.lblEquiv.AutoSize = true;
-            this.lblEquiv.Location = new System.Drawing.Point(10, 82);
-            this.lblEquiv.Name = "lblEquiv";
-            this.lblEquiv.Size = new System.Drawing.Size(67, 15);
-            this.lblEquiv.TabIndex = 3;
-            this.lblEquiv.Text = "脉冲当量";
-            //
-            // txtEquiv
-            //
-            this.txtEquiv.Location = new System.Drawing.Point(95, 79);
-            this.txtEquiv.Name = "txtEquiv";
-            this.txtEquiv.Size = new System.Drawing.Size(110, 25);
-            this.txtEquiv.TabIndex = 4;
-            this.txtEquiv.Text = "12500";
-            //
-            // lblEquivUnit
-            //
-            this.lblEquivUnit.AutoSize = true;
-            this.lblEquivUnit.Location = new System.Drawing.Point(212, 82);
-            this.lblEquivUnit.Name = "lblEquivUnit";
-            this.lblEquivUnit.Size = new System.Drawing.Size(75, 15);
-            this.lblEquivUnit.TabIndex = 5;
-            this.lblEquivUnit.Text = "pluse/unit";
-            //
-            // lblMinVel
-            //
-            this.lblMinVel.AutoSize = true;
-            this.lblMinVel.Location = new System.Drawing.Point(10, 124);
-            this.lblMinVel.Name = "lblMinVel";
-            this.lblMinVel.Size = new System.Drawing.Size(67, 15);
-            this.lblMinVel.TabIndex = 6;
-            this.lblMinVel.Text = "起始速度";
-            //
-            // txtMinVel
-            //
-            this.txtMinVel.Location = new System.Drawing.Point(95, 121);
-            this.txtMinVel.Name = "txtMinVel";
-            this.txtMinVel.Size = new System.Drawing.Size(110, 25);
-            this.txtMinVel.TabIndex = 7;
-            this.txtMinVel.Text = "0";
-            //
-            // lblMinVelUnit
-            //
-            this.lblMinVelUnit.AutoSize = true;
-            this.lblMinVelUnit.Location = new System.Drawing.Point(212, 124);
-            this.lblMinVelUnit.Name = "lblMinVelUnit";
-            this.lblMinVelUnit.Size = new System.Drawing.Size(52, 15);
-            this.lblMinVelUnit.TabIndex = 8;
-            this.lblMinVelUnit.Text = "unit/s";
-            //
-            // lblMaxVel
-            //
-            this.lblMaxVel.AutoSize = true;
-            this.lblMaxVel.Location = new System.Drawing.Point(10, 170);
-            this.lblMaxVel.Name = "lblMaxVel";
-            this.lblMaxVel.Size = new System.Drawing.Size(67, 15);
-            this.lblMaxVel.TabIndex = 9;
-            this.lblMaxVel.Text = "运动速度";
-            //
-            // txtMaxVel
-            //
-            this.txtMaxVel.Location = new System.Drawing.Point(95, 167);
-            this.txtMaxVel.Name = "txtMaxVel";
-            this.txtMaxVel.Size = new System.Drawing.Size(110, 25);
-            this.txtMaxVel.TabIndex = 10;
-            this.txtMaxVel.Text = "50";
-            //
-            // lblMaxVelUnit
-            //
-            this.lblMaxVelUnit.AutoSize = true;
-            this.lblMaxVelUnit.Location = new System.Drawing.Point(212, 170);
-            this.lblMaxVelUnit.Name = "lblMaxVelUnit";
-            this.lblMaxVelUnit.Size = new System.Drawing.Size(52, 15);
-            this.lblMaxVelUnit.TabIndex = 11;
-            this.lblMaxVelUnit.Text = "unit/s";
-            //
-            // lblTacc
-            //
-            this.lblTacc.AutoSize = true;
-            this.lblTacc.Location = new System.Drawing.Point(10, 215);
-            this.lblTacc.Name = "lblTacc";
-            this.lblTacc.Size = new System.Drawing.Size(67, 15);
-            this.lblTacc.TabIndex = 12;
-            this.lblTacc.Text = "加速时间";
-            //
-            // txtTacc
-            //
-            this.txtTacc.Location = new System.Drawing.Point(95, 212);
-            this.txtTacc.Name = "txtTacc";
-            this.txtTacc.Size = new System.Drawing.Size(110, 25);
-            this.txtTacc.TabIndex = 13;
-            this.txtTacc.Text = "0.1";
-            //
-            // lblTaccUnit
-            //
-            this.lblTaccUnit.AutoSize = true;
-            this.lblTaccUnit.Location = new System.Drawing.Point(212, 215);
-            this.lblTaccUnit.Name = "lblTaccUnit";
-            this.lblTaccUnit.Size = new System.Drawing.Size(15, 15);
-            this.lblTaccUnit.TabIndex = 14;
-            this.lblTaccUnit.Text = "s";
-            //
-            // lblTdec
-            //
-            this.lblTdec.AutoSize = true;
-            this.lblTdec.Location = new System.Drawing.Point(10, 260);
-            this.lblTdec.Name = "lblTdec";
-            this.lblTdec.Size = new System.Drawing.Size(67, 15);
-            this.lblTdec.TabIndex = 15;
-            this.lblTdec.Text = "减速时间";
-            //
-            // txtTdec
-            //
-            this.txtTdec.Location = new System.Drawing.Point(95, 257);
-            this.txtTdec.Name = "txtTdec";
-            this.txtTdec.Size = new System.Drawing.Size(110, 25);
-            this.txtTdec.TabIndex = 16;
-            this.txtTdec.Text = "0.1";
-            //
-            // lblTdecUnit
-            //
-            this.lblTdecUnit.AutoSize = true;
-            this.lblTdecUnit.Location = new System.Drawing.Point(212, 260);
-            this.lblTdecUnit.Name = "lblTdecUnit";
-            this.lblTdecUnit.Size = new System.Drawing.Size(15, 15);
-            this.lblTdecUnit.TabIndex = 17;
-            this.lblTdecUnit.Text = "s";
-            //
-            // lblStopVel
-            //
-            this.lblStopVel.AutoSize = true;
-            this.lblStopVel.Location = new System.Drawing.Point(10, 307);
-            this.lblStopVel.Name = "lblStopVel";
-            this.lblStopVel.Size = new System.Drawing.Size(67, 15);
-            this.lblStopVel.TabIndex = 18;
-            this.lblStopVel.Text = "停止速度";
-            //
-            // txtStopVel
-            //
-            this.txtStopVel.Location = new System.Drawing.Point(95, 304);
-            this.txtStopVel.Name = "txtStopVel";
-            this.txtStopVel.Size = new System.Drawing.Size(110, 25);
-            this.txtStopVel.TabIndex = 19;
-            this.txtStopVel.Text = "0";
-            //
-            // lblStopVelUnit
-            //
-            this.lblStopVelUnit.AutoSize = true;
-            this.lblStopVelUnit.Location = new System.Drawing.Point(212, 307);
-            this.lblStopVelUnit.Name = "lblStopVelUnit";
-            this.lblStopVelUnit.Size = new System.Drawing.Size(52, 15);
-            this.lblStopVelUnit.TabIndex = 20;
-            this.lblStopVelUnit.Text = "unit/s";
-            //
-            // btn_SaveConfig
-            //
-            this.btn_SaveConfig.Location = new System.Drawing.Point(19, 380);
-            this.btn_SaveConfig.Name = "btn_SaveConfig";
-            this.btn_SaveConfig.Size = new System.Drawing.Size(130, 35);
-            this.btn_SaveConfig.TabIndex = 21;
-            this.btn_SaveConfig.Text = "写入配置文件";
-            this.btn_SaveConfig.UseVisualStyleBackColor = true;
-            this.btn_SaveConfig.Click += new System.EventHandler(this.btn_SaveConfig_Click);
-            //
+            // 
             // btn_LoadConfig
-            //
+            // 
             this.btn_LoadConfig.Location = new System.Drawing.Point(160, 380);
             this.btn_LoadConfig.Name = "btn_LoadConfig";
             this.btn_LoadConfig.Size = new System.Drawing.Size(130, 35);
@@ -347,9 +159,201 @@
             this.btn_LoadConfig.Text = "加载配置文件";
             this.btn_LoadConfig.UseVisualStyleBackColor = true;
             this.btn_LoadConfig.Click += new System.EventHandler(this.btn_LoadConfig_Click);
-            //
+            // 
+            // btn_SaveConfig
+            // 
+            this.btn_SaveConfig.Location = new System.Drawing.Point(19, 380);
+            this.btn_SaveConfig.Name = "btn_SaveConfig";
+            this.btn_SaveConfig.Size = new System.Drawing.Size(130, 35);
+            this.btn_SaveConfig.TabIndex = 21;
+            this.btn_SaveConfig.Text = "写入配置文件";
+            this.btn_SaveConfig.UseVisualStyleBackColor = true;
+            this.btn_SaveConfig.Click += new System.EventHandler(this.btn_SaveConfig_Click);
+            // 
+            // txtStopVel
+            // 
+            this.txtStopVel.Location = new System.Drawing.Point(95, 304);
+            this.txtStopVel.Name = "txtStopVel";
+            this.txtStopVel.Size = new System.Drawing.Size(110, 25);
+            this.txtStopVel.TabIndex = 19;
+            this.txtStopVel.Text = "0";
+            // 
+            // lblStopVel
+            // 
+            this.lblStopVel.AutoSize = true;
+            this.lblStopVel.Location = new System.Drawing.Point(10, 307);
+            this.lblStopVel.Name = "lblStopVel";
+            this.lblStopVel.Size = new System.Drawing.Size(67, 15);
+            this.lblStopVel.TabIndex = 18;
+            this.lblStopVel.Text = "停止速度";
+            // 
+            // lblStopVelUnit
+            // 
+            this.lblStopVelUnit.AutoSize = true;
+            this.lblStopVelUnit.Location = new System.Drawing.Point(212, 307);
+            this.lblStopVelUnit.Name = "lblStopVelUnit";
+            this.lblStopVelUnit.Size = new System.Drawing.Size(55, 15);
+            this.lblStopVelUnit.TabIndex = 20;
+            this.lblStopVelUnit.Text = "unit/s";
+            // 
+            // txtTdec
+            // 
+            this.txtTdec.Location = new System.Drawing.Point(95, 257);
+            this.txtTdec.Name = "txtTdec";
+            this.txtTdec.Size = new System.Drawing.Size(110, 25);
+            this.txtTdec.TabIndex = 16;
+            this.txtTdec.Text = "0.1";
+            // 
+            // lblTdec
+            // 
+            this.lblTdec.AutoSize = true;
+            this.lblTdec.Location = new System.Drawing.Point(10, 260);
+            this.lblTdec.Name = "lblTdec";
+            this.lblTdec.Size = new System.Drawing.Size(67, 15);
+            this.lblTdec.TabIndex = 15;
+            this.lblTdec.Text = "减速时间";
+            // 
+            // lblTdecUnit
+            // 
+            this.lblTdecUnit.AutoSize = true;
+            this.lblTdecUnit.Location = new System.Drawing.Point(212, 260);
+            this.lblTdecUnit.Name = "lblTdecUnit";
+            this.lblTdecUnit.Size = new System.Drawing.Size(15, 15);
+            this.lblTdecUnit.TabIndex = 17;
+            this.lblTdecUnit.Text = "s";
+            // 
+            // txtTacc
+            // 
+            this.txtTacc.Location = new System.Drawing.Point(95, 212);
+            this.txtTacc.Name = "txtTacc";
+            this.txtTacc.Size = new System.Drawing.Size(110, 25);
+            this.txtTacc.TabIndex = 13;
+            this.txtTacc.Text = "0.1";
+            // 
+            // lblTacc
+            // 
+            this.lblTacc.AutoSize = true;
+            this.lblTacc.Location = new System.Drawing.Point(10, 215);
+            this.lblTacc.Name = "lblTacc";
+            this.lblTacc.Size = new System.Drawing.Size(67, 15);
+            this.lblTacc.TabIndex = 12;
+            this.lblTacc.Text = "加速时间";
+            // 
+            // lblTaccUnit
+            // 
+            this.lblTaccUnit.AutoSize = true;
+            this.lblTaccUnit.Location = new System.Drawing.Point(212, 215);
+            this.lblTaccUnit.Name = "lblTaccUnit";
+            this.lblTaccUnit.Size = new System.Drawing.Size(15, 15);
+            this.lblTaccUnit.TabIndex = 14;
+            this.lblTaccUnit.Text = "s";
+            // 
+            // txtMaxVel
+            // 
+            this.txtMaxVel.Location = new System.Drawing.Point(95, 167);
+            this.txtMaxVel.Name = "txtMaxVel";
+            this.txtMaxVel.Size = new System.Drawing.Size(110, 25);
+            this.txtMaxVel.TabIndex = 10;
+            this.txtMaxVel.Text = "50";
+            // 
+            // lblMaxVel
+            // 
+            this.lblMaxVel.AutoSize = true;
+            this.lblMaxVel.Location = new System.Drawing.Point(10, 170);
+            this.lblMaxVel.Name = "lblMaxVel";
+            this.lblMaxVel.Size = new System.Drawing.Size(67, 15);
+            this.lblMaxVel.TabIndex = 9;
+            this.lblMaxVel.Text = "运动速度";
+            // 
+            // lblMaxVelUnit
+            // 
+            this.lblMaxVelUnit.AutoSize = true;
+            this.lblMaxVelUnit.Location = new System.Drawing.Point(212, 170);
+            this.lblMaxVelUnit.Name = "lblMaxVelUnit";
+            this.lblMaxVelUnit.Size = new System.Drawing.Size(55, 15);
+            this.lblMaxVelUnit.TabIndex = 11;
+            this.lblMaxVelUnit.Text = "unit/s";
+            // 
+            // txtMinVel
+            // 
+            this.txtMinVel.Location = new System.Drawing.Point(95, 121);
+            this.txtMinVel.Name = "txtMinVel";
+            this.txtMinVel.Size = new System.Drawing.Size(110, 25);
+            this.txtMinVel.TabIndex = 7;
+            this.txtMinVel.Text = "0";
+            // 
+            // lblMinVel
+            // 
+            this.lblMinVel.AutoSize = true;
+            this.lblMinVel.Location = new System.Drawing.Point(10, 124);
+            this.lblMinVel.Name = "lblMinVel";
+            this.lblMinVel.Size = new System.Drawing.Size(67, 15);
+            this.lblMinVel.TabIndex = 6;
+            this.lblMinVel.Text = "起始速度";
+            // 
+            // lblMinVelUnit
+            // 
+            this.lblMinVelUnit.AutoSize = true;
+            this.lblMinVelUnit.Location = new System.Drawing.Point(212, 124);
+            this.lblMinVelUnit.Name = "lblMinVelUnit";
+            this.lblMinVelUnit.Size = new System.Drawing.Size(55, 15);
+            this.lblMinVelUnit.TabIndex = 8;
+            this.lblMinVelUnit.Text = "unit/s";
+            // 
+            // txtEquiv
+            // 
+            this.txtEquiv.Location = new System.Drawing.Point(95, 79);
+            this.txtEquiv.Name = "txtEquiv";
+            this.txtEquiv.Size = new System.Drawing.Size(110, 25);
+            this.txtEquiv.TabIndex = 4;
+            this.txtEquiv.Text = "12500";
+            // 
+            // lblEquiv
+            // 
+            this.lblEquiv.AutoSize = true;
+            this.lblEquiv.Location = new System.Drawing.Point(10, 82);
+            this.lblEquiv.Name = "lblEquiv";
+            this.lblEquiv.Size = new System.Drawing.Size(67, 15);
+            this.lblEquiv.TabIndex = 3;
+            this.lblEquiv.Text = "脉冲当量";
+            // 
+            // lblEquivUnit
+            // 
+            this.lblEquivUnit.AutoSize = true;
+            this.lblEquivUnit.Location = new System.Drawing.Point(212, 82);
+            this.lblEquivUnit.Name = "lblEquivUnit";
+            this.lblEquivUnit.Size = new System.Drawing.Size(87, 15);
+            this.lblEquivUnit.TabIndex = 5;
+            this.lblEquivUnit.Text = "pluse/unit";
+            // 
+            // txtDis
+            // 
+            this.txtDis.Location = new System.Drawing.Point(95, 38);
+            this.txtDis.Name = "txtDis";
+            this.txtDis.Size = new System.Drawing.Size(110, 25);
+            this.txtDis.TabIndex = 1;
+            this.txtDis.Text = "100";
+            // 
+            // lblDis
+            // 
+            this.lblDis.AutoSize = true;
+            this.lblDis.Location = new System.Drawing.Point(10, 41);
+            this.lblDis.Name = "lblDis";
+            this.lblDis.Size = new System.Drawing.Size(67, 15);
+            this.lblDis.TabIndex = 0;
+            this.lblDis.Text = "运动距离";
+            // 
+            // lblDisUnit
+            // 
+            this.lblDisUnit.AutoSize = true;
+            this.lblDisUnit.Location = new System.Drawing.Point(212, 41);
+            this.lblDisUnit.Name = "lblDisUnit";
+            this.lblDisUnit.Size = new System.Drawing.Size(39, 15);
+            this.lblDisUnit.TabIndex = 2;
+            this.lblDisUnit.Text = "unit";
+            // 
             // groupBox2
-            //
+            // 
             this.groupBox2.Controls.Add(this.btn_LoadHomeConfig);
             this.groupBox2.Controls.Add(this.btn_SaveHomeConfig);
             this.groupBox2.Controls.Add(this.txtHomeOffset);
@@ -373,149 +377,9 @@
             this.groupBox2.TabIndex = 23;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "回零偏移";
-            //
-            // lblHomeVelLow
-            //
-            this.lblHomeVelLow.AutoSize = true;
-            this.lblHomeVelLow.Location = new System.Drawing.Point(10, 41);
-            this.lblHomeVelLow.Name = "lblHomeVelLow";
-            this.lblHomeVelLow.Size = new System.Drawing.Size(67, 15);
-            this.lblHomeVelLow.TabIndex = 0;
-            this.lblHomeVelLow.Text = "回零低速";
-            //
-            // txtHomeVelLow
-            //
-            this.txtHomeVelLow.Location = new System.Drawing.Point(95, 38);
-            this.txtHomeVelLow.Name = "txtHomeVelLow";
-            this.txtHomeVelLow.Size = new System.Drawing.Size(110, 25);
-            this.txtHomeVelLow.TabIndex = 1;
-            this.txtHomeVelLow.Text = "10";
-            //
-            // lblHomeVelLowUnit
-            //
-            this.lblHomeVelLowUnit.AutoSize = true;
-            this.lblHomeVelLowUnit.Location = new System.Drawing.Point(212, 41);
-            this.lblHomeVelLowUnit.Name = "lblHomeVelLowUnit";
-            this.lblHomeVelLowUnit.Size = new System.Drawing.Size(52, 15);
-            this.lblHomeVelLowUnit.TabIndex = 2;
-            this.lblHomeVelLowUnit.Text = "unit/s";
-            //
-            // lblHomeVelHigh
-            //
-            this.lblHomeVelHigh.AutoSize = true;
-            this.lblHomeVelHigh.Location = new System.Drawing.Point(10, 82);
-            this.lblHomeVelHigh.Name = "lblHomeVelHigh";
-            this.lblHomeVelHigh.Size = new System.Drawing.Size(67, 15);
-            this.lblHomeVelHigh.TabIndex = 3;
-            this.lblHomeVelHigh.Text = "回零高速";
-            //
-            // txtHomeVelHigh
-            //
-            this.txtHomeVelHigh.Location = new System.Drawing.Point(95, 79);
-            this.txtHomeVelHigh.Name = "txtHomeVelHigh";
-            this.txtHomeVelHigh.Size = new System.Drawing.Size(110, 25);
-            this.txtHomeVelHigh.TabIndex = 4;
-            this.txtHomeVelHigh.Text = "40";
-            //
-            // lblHomeVelHighUnit
-            //
-            this.lblHomeVelHighUnit.AutoSize = true;
-            this.lblHomeVelHighUnit.Location = new System.Drawing.Point(212, 82);
-            this.lblHomeVelHighUnit.Name = "lblHomeVelHighUnit";
-            this.lblHomeVelHighUnit.Size = new System.Drawing.Size(52, 15);
-            this.lblHomeVelHighUnit.TabIndex = 5;
-            this.lblHomeVelHighUnit.Text = "unit/s";
-            //
-            // lblHomeAcc
-            //
-            this.lblHomeAcc.AutoSize = true;
-            this.lblHomeAcc.Location = new System.Drawing.Point(10, 124);
-            this.lblHomeAcc.Name = "lblHomeAcc";
-            this.lblHomeAcc.Size = new System.Drawing.Size(67, 15);
-            this.lblHomeAcc.TabIndex = 6;
-            this.lblHomeAcc.Text = "加速时间";
-            //
-            // txtHomeAcc
-            //
-            this.txtHomeAcc.Location = new System.Drawing.Point(95, 121);
-            this.txtHomeAcc.Name = "txtHomeAcc";
-            this.txtHomeAcc.Size = new System.Drawing.Size(110, 25);
-            this.txtHomeAcc.TabIndex = 7;
-            this.txtHomeAcc.Text = "0.1";
-            //
-            // lblHomeAccUnit
-            //
-            this.lblHomeAccUnit.AutoSize = true;
-            this.lblHomeAccUnit.Location = new System.Drawing.Point(212, 124);
-            this.lblHomeAccUnit.Name = "lblHomeAccUnit";
-            this.lblHomeAccUnit.Size = new System.Drawing.Size(15, 15);
-            this.lblHomeAccUnit.TabIndex = 8;
-            this.lblHomeAccUnit.Text = "s";
-            //
-            // lblHomeDec
-            //
-            this.lblHomeDec.AutoSize = true;
-            this.lblHomeDec.Location = new System.Drawing.Point(10, 170);
-            this.lblHomeDec.Name = "lblHomeDec";
-            this.lblHomeDec.Size = new System.Drawing.Size(67, 15);
-            this.lblHomeDec.TabIndex = 9;
-            this.lblHomeDec.Text = "减速时间";
-            //
-            // txtHomeDec
-            //
-            this.txtHomeDec.Location = new System.Drawing.Point(95, 167);
-            this.txtHomeDec.Name = "txtHomeDec";
-            this.txtHomeDec.Size = new System.Drawing.Size(110, 25);
-            this.txtHomeDec.TabIndex = 10;
-            this.txtHomeDec.Text = "0.1";
-            //
-            // lblHomeDecUnit
-            //
-            this.lblHomeDecUnit.AutoSize = true;
-            this.lblHomeDecUnit.Location = new System.Drawing.Point(212, 170);
-            this.lblHomeDecUnit.Name = "lblHomeDecUnit";
-            this.lblHomeDecUnit.Size = new System.Drawing.Size(15, 15);
-            this.lblHomeDecUnit.TabIndex = 11;
-            this.lblHomeDecUnit.Text = "s";
-            //
-            // lblHomeOffset
-            //
-            this.lblHomeOffset.AutoSize = true;
-            this.lblHomeOffset.Location = new System.Drawing.Point(10, 215);
-            this.lblHomeOffset.Name = "lblHomeOffset";
-            this.lblHomeOffset.Size = new System.Drawing.Size(67, 15);
-            this.lblHomeOffset.TabIndex = 12;
-            this.lblHomeOffset.Text = "回零偏移";
-            //
-            // txtHomeOffset
-            //
-            this.txtHomeOffset.Location = new System.Drawing.Point(95, 212);
-            this.txtHomeOffset.Name = "txtHomeOffset";
-            this.txtHomeOffset.Size = new System.Drawing.Size(110, 25);
-            this.txtHomeOffset.TabIndex = 13;
-            this.txtHomeOffset.Text = "0";
-            //
-            // lblHomeOffsetUnit
-            //
-            this.lblHomeOffsetUnit.AutoSize = true;
-            this.lblHomeOffsetUnit.Location = new System.Drawing.Point(212, 215);
-            this.lblHomeOffsetUnit.Name = "lblHomeOffsetUnit";
-            this.lblHomeOffsetUnit.Size = new System.Drawing.Size(37, 15);
-            this.lblHomeOffsetUnit.TabIndex = 14;
-            this.lblHomeOffsetUnit.Text = "unit";
-            //
-            // btn_SaveHomeConfig
-            //
-            this.btn_SaveHomeConfig.Location = new System.Drawing.Point(19, 380);
-            this.btn_SaveHomeConfig.Name = "btn_SaveHomeConfig";
-            this.btn_SaveHomeConfig.Size = new System.Drawing.Size(130, 35);
-            this.btn_SaveHomeConfig.TabIndex = 15;
-            this.btn_SaveHomeConfig.Text = "写入配置文件";
-            this.btn_SaveHomeConfig.UseVisualStyleBackColor = true;
-            this.btn_SaveHomeConfig.Click += new System.EventHandler(this.btn_SaveHomeConfig_Click);
-            //
+            // 
             // btn_LoadHomeConfig
-            //
+            // 
             this.btn_LoadHomeConfig.Location = new System.Drawing.Point(160, 380);
             this.btn_LoadHomeConfig.Name = "btn_LoadHomeConfig";
             this.btn_LoadHomeConfig.Size = new System.Drawing.Size(130, 35);
@@ -523,9 +387,153 @@
             this.btn_LoadHomeConfig.Text = "加载配置文件";
             this.btn_LoadHomeConfig.UseVisualStyleBackColor = true;
             this.btn_LoadHomeConfig.Click += new System.EventHandler(this.btn_LoadHomeConfig_Click);
-            //
+            // 
+            // btn_SaveHomeConfig
+            // 
+            this.btn_SaveHomeConfig.Location = new System.Drawing.Point(19, 380);
+            this.btn_SaveHomeConfig.Name = "btn_SaveHomeConfig";
+            this.btn_SaveHomeConfig.Size = new System.Drawing.Size(130, 35);
+            this.btn_SaveHomeConfig.TabIndex = 15;
+            this.btn_SaveHomeConfig.Text = "写入配置文件";
+            this.btn_SaveHomeConfig.UseVisualStyleBackColor = true;
+            this.btn_SaveHomeConfig.Click += new System.EventHandler(this.btn_SaveHomeConfig_Click);
+            // 
+            // txtHomeOffset
+            // 
+            this.txtHomeOffset.Location = new System.Drawing.Point(95, 212);
+            this.txtHomeOffset.Name = "txtHomeOffset";
+            this.txtHomeOffset.Size = new System.Drawing.Size(110, 25);
+            this.txtHomeOffset.TabIndex = 13;
+            this.txtHomeOffset.Text = "0";
+            // 
+            // lblHomeOffset
+            // 
+            this.lblHomeOffset.AutoSize = true;
+            this.lblHomeOffset.Location = new System.Drawing.Point(10, 215);
+            this.lblHomeOffset.Name = "lblHomeOffset";
+            this.lblHomeOffset.Size = new System.Drawing.Size(67, 15);
+            this.lblHomeOffset.TabIndex = 12;
+            this.lblHomeOffset.Text = "回零偏移";
+            // 
+            // lblHomeOffsetUnit
+            // 
+            this.lblHomeOffsetUnit.AutoSize = true;
+            this.lblHomeOffsetUnit.Location = new System.Drawing.Point(212, 215);
+            this.lblHomeOffsetUnit.Name = "lblHomeOffsetUnit";
+            this.lblHomeOffsetUnit.Size = new System.Drawing.Size(39, 15);
+            this.lblHomeOffsetUnit.TabIndex = 14;
+            this.lblHomeOffsetUnit.Text = "unit";
+            // 
+            // txtHomeDec
+            // 
+            this.txtHomeDec.Location = new System.Drawing.Point(95, 167);
+            this.txtHomeDec.Name = "txtHomeDec";
+            this.txtHomeDec.Size = new System.Drawing.Size(110, 25);
+            this.txtHomeDec.TabIndex = 10;
+            this.txtHomeDec.Text = "0.1";
+            // 
+            // lblHomeDec
+            // 
+            this.lblHomeDec.AutoSize = true;
+            this.lblHomeDec.Location = new System.Drawing.Point(10, 170);
+            this.lblHomeDec.Name = "lblHomeDec";
+            this.lblHomeDec.Size = new System.Drawing.Size(67, 15);
+            this.lblHomeDec.TabIndex = 9;
+            this.lblHomeDec.Text = "减速时间";
+            // 
+            // lblHomeDecUnit
+            // 
+            this.lblHomeDecUnit.AutoSize = true;
+            this.lblHomeDecUnit.Location = new System.Drawing.Point(212, 170);
+            this.lblHomeDecUnit.Name = "lblHomeDecUnit";
+            this.lblHomeDecUnit.Size = new System.Drawing.Size(15, 15);
+            this.lblHomeDecUnit.TabIndex = 11;
+            this.lblHomeDecUnit.Text = "s";
+            // 
+            // txtHomeAcc
+            // 
+            this.txtHomeAcc.Location = new System.Drawing.Point(95, 121);
+            this.txtHomeAcc.Name = "txtHomeAcc";
+            this.txtHomeAcc.Size = new System.Drawing.Size(110, 25);
+            this.txtHomeAcc.TabIndex = 7;
+            this.txtHomeAcc.Text = "0.1";
+            // 
+            // lblHomeAcc
+            // 
+            this.lblHomeAcc.AutoSize = true;
+            this.lblHomeAcc.Location = new System.Drawing.Point(10, 124);
+            this.lblHomeAcc.Name = "lblHomeAcc";
+            this.lblHomeAcc.Size = new System.Drawing.Size(67, 15);
+            this.lblHomeAcc.TabIndex = 6;
+            this.lblHomeAcc.Text = "加速时间";
+            // 
+            // lblHomeAccUnit
+            // 
+            this.lblHomeAccUnit.AutoSize = true;
+            this.lblHomeAccUnit.Location = new System.Drawing.Point(212, 124);
+            this.lblHomeAccUnit.Name = "lblHomeAccUnit";
+            this.lblHomeAccUnit.Size = new System.Drawing.Size(15, 15);
+            this.lblHomeAccUnit.TabIndex = 8;
+            this.lblHomeAccUnit.Text = "s";
+            // 
+            // txtHomeVelHigh
+            // 
+            this.txtHomeVelHigh.Location = new System.Drawing.Point(95, 79);
+            this.txtHomeVelHigh.Name = "txtHomeVelHigh";
+            this.txtHomeVelHigh.Size = new System.Drawing.Size(110, 25);
+            this.txtHomeVelHigh.TabIndex = 4;
+            this.txtHomeVelHigh.Text = "40";
+            // 
+            // lblHomeVelHigh
+            // 
+            this.lblHomeVelHigh.AutoSize = true;
+            this.lblHomeVelHigh.Location = new System.Drawing.Point(10, 82);
+            this.lblHomeVelHigh.Name = "lblHomeVelHigh";
+            this.lblHomeVelHigh.Size = new System.Drawing.Size(67, 15);
+            this.lblHomeVelHigh.TabIndex = 3;
+            this.lblHomeVelHigh.Text = "回零高速";
+            // 
+            // lblHomeVelHighUnit
+            // 
+            this.lblHomeVelHighUnit.AutoSize = true;
+            this.lblHomeVelHighUnit.Location = new System.Drawing.Point(212, 82);
+            this.lblHomeVelHighUnit.Name = "lblHomeVelHighUnit";
+            this.lblHomeVelHighUnit.Size = new System.Drawing.Size(55, 15);
+            this.lblHomeVelHighUnit.TabIndex = 5;
+            this.lblHomeVelHighUnit.Text = "unit/s";
+            // 
+            // txtHomeVelLow
+            // 
+            this.txtHomeVelLow.Location = new System.Drawing.Point(95, 38);
+            this.txtHomeVelLow.Name = "txtHomeVelLow";
+            this.txtHomeVelLow.Size = new System.Drawing.Size(110, 25);
+            this.txtHomeVelLow.TabIndex = 1;
+            this.txtHomeVelLow.Text = "10";
+            // 
+            // lblHomeVelLow
+            // 
+            this.lblHomeVelLow.AutoSize = true;
+            this.lblHomeVelLow.Location = new System.Drawing.Point(10, 41);
+            this.lblHomeVelLow.Name = "lblHomeVelLow";
+            this.lblHomeVelLow.Size = new System.Drawing.Size(67, 15);
+            this.lblHomeVelLow.TabIndex = 0;
+            this.lblHomeVelLow.Text = "回零低速";
+            // 
+            // lblHomeVelLowUnit
+            // 
+            this.lblHomeVelLowUnit.AutoSize = true;
+            this.lblHomeVelLowUnit.Location = new System.Drawing.Point(212, 41);
+            this.lblHomeVelLowUnit.Name = "lblHomeVelLowUnit";
+            this.lblHomeVelLowUnit.Size = new System.Drawing.Size(55, 15);
+            this.lblHomeVelLowUnit.TabIndex = 2;
+            this.lblHomeVelLowUnit.Text = "unit/s";
+            // 
             // groupBox3
-            //
+            // 
+            this.groupBox3.Controls.Add(this.label2);
+            this.groupBox3.Controls.Add(this.label1);
+            this.groupBox3.Controls.Add(this.panel_Output);
+            this.groupBox3.Controls.Add(this.panel_Input);
             this.groupBox3.Controls.Add(this.tb_EthercatState);
             this.groupBox3.Controls.Add(this.lblEthercat);
             this.groupBox3.Controls.Add(this.tb_StateMachine);
@@ -547,140 +555,140 @@
             this.groupBox3.TabIndex = 24;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "状态监控";
-            //
-            // lblCurVel
-            //
-            this.lblCurVel.AutoSize = true;
-            this.lblCurVel.Location = new System.Drawing.Point(10, 41);
-            this.lblCurVel.Name = "lblCurVel";
-            this.lblCurVel.Size = new System.Drawing.Size(67, 15);
-            this.lblCurVel.TabIndex = 0;
-            this.lblCurVel.Text = "当前速度";
-            //
-            // tb_CurrentVel
-            //
-            this.tb_CurrentVel.Location = new System.Drawing.Point(95, 38);
-            this.tb_CurrentVel.Name = "tb_CurrentVel";
-            this.tb_CurrentVel.ReadOnly = true;
-            this.tb_CurrentVel.Size = new System.Drawing.Size(110, 25);
-            this.tb_CurrentVel.TabIndex = 1;
-            //
-            // lblCurVelUnit
-            //
-            this.lblCurVelUnit.AutoSize = true;
-            this.lblCurVelUnit.Location = new System.Drawing.Point(212, 41);
-            this.lblCurVelUnit.Name = "lblCurVelUnit";
-            this.lblCurVelUnit.Size = new System.Drawing.Size(52, 15);
-            this.lblCurVelUnit.TabIndex = 2;
-            this.lblCurVelUnit.Text = "unit/s";
-            //
-            // lblCurPos
-            //
-            this.lblCurPos.AutoSize = true;
-            this.lblCurPos.Location = new System.Drawing.Point(10, 82);
-            this.lblCurPos.Name = "lblCurPos";
-            this.lblCurPos.Size = new System.Drawing.Size(67, 15);
-            this.lblCurPos.TabIndex = 3;
-            this.lblCurPos.Text = "当前位置";
-            //
-            // tb_CurrentPos
-            //
-            this.tb_CurrentPos.Location = new System.Drawing.Point(95, 79);
-            this.tb_CurrentPos.Name = "tb_CurrentPos";
-            this.tb_CurrentPos.ReadOnly = true;
-            this.tb_CurrentPos.Size = new System.Drawing.Size(110, 25);
-            this.tb_CurrentPos.TabIndex = 4;
-            //
-            // lblCurPosUnit
-            //
-            this.lblCurPosUnit.AutoSize = true;
-            this.lblCurPosUnit.Location = new System.Drawing.Point(212, 82);
-            this.lblCurPosUnit.Name = "lblCurPosUnit";
-            this.lblCurPosUnit.Size = new System.Drawing.Size(37, 15);
-            this.lblCurPosUnit.TabIndex = 5;
-            this.lblCurPosUnit.Text = "unit";
-            //
-            // lblEncoder
-            //
-            this.lblEncoder.AutoSize = true;
-            this.lblEncoder.Location = new System.Drawing.Point(10, 124);
-            this.lblEncoder.Name = "lblEncoder";
-            this.lblEncoder.Size = new System.Drawing.Size(67, 15);
-            this.lblEncoder.TabIndex = 6;
-            this.lblEncoder.Text = "反馈位置";
-            //
-            // tb_Encoder
-            //
-            this.tb_Encoder.Location = new System.Drawing.Point(95, 121);
-            this.tb_Encoder.Name = "tb_Encoder";
-            this.tb_Encoder.ReadOnly = true;
-            this.tb_Encoder.Size = new System.Drawing.Size(110, 25);
-            this.tb_Encoder.TabIndex = 7;
-            //
-            // lblEncoderUnit
-            //
-            this.lblEncoderUnit.AutoSize = true;
-            this.lblEncoderUnit.Location = new System.Drawing.Point(212, 124);
-            this.lblEncoderUnit.Name = "lblEncoderUnit";
-            this.lblEncoderUnit.Size = new System.Drawing.Size(37, 15);
-            this.lblEncoderUnit.TabIndex = 8;
-            this.lblEncoderUnit.Text = "unit";
-            //
-            // lblRunState
-            //
-            this.lblRunState.AutoSize = true;
-            this.lblRunState.Location = new System.Drawing.Point(10, 170);
-            this.lblRunState.Name = "lblRunState";
-            this.lblRunState.Size = new System.Drawing.Size(67, 15);
-            this.lblRunState.TabIndex = 9;
-            this.lblRunState.Text = "运动状态";
-            //
-            // tb_RunState
-            //
-            this.tb_RunState.Location = new System.Drawing.Point(95, 167);
-            this.tb_RunState.Name = "tb_RunState";
-            this.tb_RunState.ReadOnly = true;
-            this.tb_RunState.Size = new System.Drawing.Size(180, 25);
-            this.tb_RunState.TabIndex = 10;
-            //
-            // lblStateMachine
-            //
-            this.lblStateMachine.AutoSize = true;
-            this.lblStateMachine.Location = new System.Drawing.Point(10, 215);
-            this.lblStateMachine.Name = "lblStateMachine";
-            this.lblStateMachine.Size = new System.Drawing.Size(67, 15);
-            this.lblStateMachine.TabIndex = 11;
-            this.lblStateMachine.Text = "轴状态机";
-            //
-            // tb_StateMachine
-            //
-            this.tb_StateMachine.BackColor = System.Drawing.Color.Silver;
-            this.tb_StateMachine.Location = new System.Drawing.Point(95, 212);
-            this.tb_StateMachine.Name = "tb_StateMachine";
-            this.tb_StateMachine.ReadOnly = true;
-            this.tb_StateMachine.Size = new System.Drawing.Size(180, 25);
-            this.tb_StateMachine.TabIndex = 12;
-            //
-            // lblEthercat
-            //
-            this.lblEthercat.AutoSize = true;
-            this.lblEthercat.Location = new System.Drawing.Point(10, 260);
-            this.lblEthercat.Name = "lblEthercat";
-            this.lblEthercat.Size = new System.Drawing.Size(67, 15);
-            this.lblEthercat.TabIndex = 13;
-            this.lblEthercat.Text = "总线状态";
-            //
+            // 
             // tb_EthercatState
-            //
+            // 
             this.tb_EthercatState.BackColor = System.Drawing.Color.Silver;
             this.tb_EthercatState.Location = new System.Drawing.Point(95, 257);
             this.tb_EthercatState.Name = "tb_EthercatState";
             this.tb_EthercatState.ReadOnly = true;
             this.tb_EthercatState.Size = new System.Drawing.Size(180, 25);
             this.tb_EthercatState.TabIndex = 14;
-            //
+            // 
+            // lblEthercat
+            // 
+            this.lblEthercat.AutoSize = true;
+            this.lblEthercat.Location = new System.Drawing.Point(10, 260);
+            this.lblEthercat.Name = "lblEthercat";
+            this.lblEthercat.Size = new System.Drawing.Size(67, 15);
+            this.lblEthercat.TabIndex = 13;
+            this.lblEthercat.Text = "总线状态";
+            // 
+            // tb_StateMachine
+            // 
+            this.tb_StateMachine.BackColor = System.Drawing.Color.Silver;
+            this.tb_StateMachine.Location = new System.Drawing.Point(95, 212);
+            this.tb_StateMachine.Name = "tb_StateMachine";
+            this.tb_StateMachine.ReadOnly = true;
+            this.tb_StateMachine.Size = new System.Drawing.Size(180, 25);
+            this.tb_StateMachine.TabIndex = 12;
+            // 
+            // lblStateMachine
+            // 
+            this.lblStateMachine.AutoSize = true;
+            this.lblStateMachine.Location = new System.Drawing.Point(10, 215);
+            this.lblStateMachine.Name = "lblStateMachine";
+            this.lblStateMachine.Size = new System.Drawing.Size(67, 15);
+            this.lblStateMachine.TabIndex = 11;
+            this.lblStateMachine.Text = "轴状态机";
+            // 
+            // tb_RunState
+            // 
+            this.tb_RunState.Location = new System.Drawing.Point(95, 167);
+            this.tb_RunState.Name = "tb_RunState";
+            this.tb_RunState.ReadOnly = true;
+            this.tb_RunState.Size = new System.Drawing.Size(180, 25);
+            this.tb_RunState.TabIndex = 10;
+            // 
+            // lblRunState
+            // 
+            this.lblRunState.AutoSize = true;
+            this.lblRunState.Location = new System.Drawing.Point(10, 170);
+            this.lblRunState.Name = "lblRunState";
+            this.lblRunState.Size = new System.Drawing.Size(67, 15);
+            this.lblRunState.TabIndex = 9;
+            this.lblRunState.Text = "运动状态";
+            // 
+            // tb_Encoder
+            // 
+            this.tb_Encoder.Location = new System.Drawing.Point(95, 121);
+            this.tb_Encoder.Name = "tb_Encoder";
+            this.tb_Encoder.ReadOnly = true;
+            this.tb_Encoder.Size = new System.Drawing.Size(110, 25);
+            this.tb_Encoder.TabIndex = 7;
+            // 
+            // lblEncoder
+            // 
+            this.lblEncoder.AutoSize = true;
+            this.lblEncoder.Location = new System.Drawing.Point(10, 124);
+            this.lblEncoder.Name = "lblEncoder";
+            this.lblEncoder.Size = new System.Drawing.Size(67, 15);
+            this.lblEncoder.TabIndex = 6;
+            this.lblEncoder.Text = "反馈位置";
+            // 
+            // lblEncoderUnit
+            // 
+            this.lblEncoderUnit.AutoSize = true;
+            this.lblEncoderUnit.Location = new System.Drawing.Point(212, 124);
+            this.lblEncoderUnit.Name = "lblEncoderUnit";
+            this.lblEncoderUnit.Size = new System.Drawing.Size(39, 15);
+            this.lblEncoderUnit.TabIndex = 8;
+            this.lblEncoderUnit.Text = "unit";
+            // 
+            // tb_CurrentPos
+            // 
+            this.tb_CurrentPos.Location = new System.Drawing.Point(95, 79);
+            this.tb_CurrentPos.Name = "tb_CurrentPos";
+            this.tb_CurrentPos.ReadOnly = true;
+            this.tb_CurrentPos.Size = new System.Drawing.Size(110, 25);
+            this.tb_CurrentPos.TabIndex = 4;
+            // 
+            // lblCurPos
+            // 
+            this.lblCurPos.AutoSize = true;
+            this.lblCurPos.Location = new System.Drawing.Point(10, 82);
+            this.lblCurPos.Name = "lblCurPos";
+            this.lblCurPos.Size = new System.Drawing.Size(67, 15);
+            this.lblCurPos.TabIndex = 3;
+            this.lblCurPos.Text = "当前位置";
+            // 
+            // lblCurPosUnit
+            // 
+            this.lblCurPosUnit.AutoSize = true;
+            this.lblCurPosUnit.Location = new System.Drawing.Point(212, 82);
+            this.lblCurPosUnit.Name = "lblCurPosUnit";
+            this.lblCurPosUnit.Size = new System.Drawing.Size(39, 15);
+            this.lblCurPosUnit.TabIndex = 5;
+            this.lblCurPosUnit.Text = "unit";
+            // 
+            // tb_CurrentVel
+            // 
+            this.tb_CurrentVel.Location = new System.Drawing.Point(95, 38);
+            this.tb_CurrentVel.Name = "tb_CurrentVel";
+            this.tb_CurrentVel.ReadOnly = true;
+            this.tb_CurrentVel.Size = new System.Drawing.Size(110, 25);
+            this.tb_CurrentVel.TabIndex = 1;
+            // 
+            // lblCurVel
+            // 
+            this.lblCurVel.AutoSize = true;
+            this.lblCurVel.Location = new System.Drawing.Point(10, 41);
+            this.lblCurVel.Name = "lblCurVel";
+            this.lblCurVel.Size = new System.Drawing.Size(67, 15);
+            this.lblCurVel.TabIndex = 0;
+            this.lblCurVel.Text = "当前速度";
+            // 
+            // lblCurVelUnit
+            // 
+            this.lblCurVelUnit.AutoSize = true;
+            this.lblCurVelUnit.Location = new System.Drawing.Point(212, 41);
+            this.lblCurVelUnit.Name = "lblCurVelUnit";
+            this.lblCurVelUnit.Size = new System.Drawing.Size(55, 15);
+            this.lblCurVelUnit.TabIndex = 2;
+            this.lblCurVelUnit.Text = "unit/s";
+            // 
             // groupBox4
-            //
+            // 
             this.groupBox4.Controls.Add(this.btn_Home);
             this.groupBox4.Controls.Add(this.btn_JogNeg);
             this.groupBox4.Controls.Add(this.btn_JogPos);
@@ -694,9 +702,9 @@
             this.groupBox4.TabIndex = 25;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "运动控制";
-            //
+            // 
             // btn_Home
-            //
+            // 
             this.btn_Home.Location = new System.Drawing.Point(20, 35);
             this.btn_Home.Name = "btn_Home";
             this.btn_Home.Size = new System.Drawing.Size(110, 45);
@@ -704,9 +712,9 @@
             this.btn_Home.Text = "启动回零";
             this.btn_Home.UseVisualStyleBackColor = true;
             this.btn_Home.Click += new System.EventHandler(this.btn_Home_Click);
-            //
+            // 
             // btn_JogNeg
-            //
+            // 
             this.btn_JogNeg.Location = new System.Drawing.Point(150, 35);
             this.btn_JogNeg.Name = "btn_JogNeg";
             this.btn_JogNeg.Size = new System.Drawing.Size(110, 45);
@@ -715,9 +723,9 @@
             this.btn_JogNeg.UseVisualStyleBackColor = true;
             this.btn_JogNeg.MouseDown += new System.Windows.Forms.MouseEventHandler(this.btn_JogNeg_MouseDown);
             this.btn_JogNeg.MouseUp += new System.Windows.Forms.MouseEventHandler(this.btn_JogNeg_MouseUp);
-            //
+            // 
             // btn_JogPos
-            //
+            // 
             this.btn_JogPos.Location = new System.Drawing.Point(280, 35);
             this.btn_JogPos.Name = "btn_JogPos";
             this.btn_JogPos.Size = new System.Drawing.Size(110, 45);
@@ -726,9 +734,9 @@
             this.btn_JogPos.UseVisualStyleBackColor = true;
             this.btn_JogPos.MouseDown += new System.Windows.Forms.MouseEventHandler(this.btn_JogPos_MouseDown);
             this.btn_JogPos.MouseUp += new System.Windows.Forms.MouseEventHandler(this.btn_JogPos_MouseUp);
-            //
+            // 
             // btn_Stop
-            //
+            // 
             this.btn_Stop.Location = new System.Drawing.Point(410, 35);
             this.btn_Stop.Name = "btn_Stop";
             this.btn_Stop.Size = new System.Drawing.Size(110, 45);
@@ -736,9 +744,9 @@
             this.btn_Stop.Text = "停止运动";
             this.btn_Stop.UseVisualStyleBackColor = true;
             this.btn_Stop.Click += new System.EventHandler(this.btn_Stop_Click);
-            //
+            // 
             // btn_Enable
-            //
+            // 
             this.btn_Enable.Location = new System.Drawing.Point(540, 35);
             this.btn_Enable.Name = "btn_Enable";
             this.btn_Enable.Size = new System.Drawing.Size(110, 45);
@@ -746,9 +754,9 @@
             this.btn_Enable.Text = "开启使能";
             this.btn_Enable.UseVisualStyleBackColor = true;
             this.btn_Enable.Click += new System.EventHandler(this.btn_Enable_Click);
-            //
+            // 
             // btn_Disable
-            //
+            // 
             this.btn_Disable.Location = new System.Drawing.Point(670, 35);
             this.btn_Disable.Name = "btn_Disable";
             this.btn_Disable.Size = new System.Drawing.Size(110, 45);
@@ -756,9 +764,9 @@
             this.btn_Disable.Text = "关闭使能";
             this.btn_Disable.UseVisualStyleBackColor = true;
             this.btn_Disable.Click += new System.EventHandler(this.btn_Disable_Click);
-            //
+            // 
             // btn_ClearErr
-            //
+            // 
             this.btn_ClearErr.Location = new System.Drawing.Point(800, 35);
             this.btn_ClearErr.Name = "btn_ClearErr";
             this.btn_ClearErr.Size = new System.Drawing.Size(110, 45);
@@ -766,18 +774,18 @@
             this.btn_ClearErr.Text = "清除错误";
             this.btn_ClearErr.UseVisualStyleBackColor = true;
             this.btn_ClearErr.Click += new System.EventHandler(this.btn_ClearErr_Click);
-            //
+            // 
             // label8
-            //
+            // 
             this.label8.AutoSize = true;
             this.label8.Location = new System.Drawing.Point(12, 24);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(42, 15);
+            this.label8.Size = new System.Drawing.Size(52, 15);
             this.label8.TabIndex = 1;
             this.label8.Text = "轴号：";
-            //
+            // 
             // cmbAxis
-            //
+            // 
             this.cmbAxis.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbAxis.FormattingEnabled = true;
             this.cmbAxis.Location = new System.Drawing.Point(60, 20);
@@ -785,9 +793,9 @@
             this.cmbAxis.Size = new System.Drawing.Size(120, 23);
             this.cmbAxis.TabIndex = 2;
             this.cmbAxis.SelectedIndexChanged += new System.EventHandler(this.cmbAxis_SelectedIndexChanged);
-            //
+            // 
             // lbl_Connect
-            //
+            // 
             this.lbl_Connect.AutoSize = true;
             this.lbl_Connect.ForeColor = System.Drawing.Color.Red;
             this.lbl_Connect.Location = new System.Drawing.Point(210, 24);
@@ -795,77 +803,77 @@
             this.lbl_Connect.Size = new System.Drawing.Size(52, 15);
             this.lbl_Connect.TabIndex = 3;
             this.lbl_Connect.Text = "未连接";
-            //
+            // 
+            // panel_Enable
+            // 
+            this.panel_Enable.BackColor = System.Drawing.Color.Red;
+            this.panel_Enable.Location = new System.Drawing.Point(340, 30);
+            this.panel_Enable.Name = "panel_Enable";
+            this.panel_Enable.Size = new System.Drawing.Size(28, 25);
+            this.panel_Enable.TabIndex = 5;
+            // 
             // lblEnable
-            //
+            // 
             this.lblEnable.AutoSize = true;
             this.lblEnable.Location = new System.Drawing.Point(336, 10);
             this.lblEnable.Name = "lblEnable";
             this.lblEnable.Size = new System.Drawing.Size(37, 15);
             this.lblEnable.TabIndex = 4;
             this.lblEnable.Text = "使能";
-            //
-            // panel_Enable
-            //
-            this.panel_Enable.BackColor = System.Drawing.Color.Red;
-            this.panel_Enable.Location = new System.Drawing.Point(340, 30);
-            this.panel_Enable.Name = "panel_Enable";
-            this.panel_Enable.Size = new System.Drawing.Size(28, 25);
-            this.panel_Enable.TabIndex = 5;
-            //
+            // 
+            // panel_Home
+            // 
+            this.panel_Home.BackColor = System.Drawing.Color.Red;
+            this.panel_Home.Location = new System.Drawing.Point(410, 30);
+            this.panel_Home.Name = "panel_Home";
+            this.panel_Home.Size = new System.Drawing.Size(28, 25);
+            this.panel_Home.TabIndex = 7;
+            // 
             // lblHome
-            //
+            // 
             this.lblHome.AutoSize = true;
             this.lblHome.Location = new System.Drawing.Point(406, 10);
             this.lblHome.Name = "lblHome";
             this.lblHome.Size = new System.Drawing.Size(37, 15);
             this.lblHome.TabIndex = 6;
             this.lblHome.Text = "回原";
-            //
-            // panel_Home
-            //
-            this.panel_Home.BackColor = System.Drawing.Color.Red;
-            this.panel_Home.Location = new System.Drawing.Point(410, 30);
-            this.panel_Home.Name = "panel_Home";
-            this.panel_Home.Size = new System.Drawing.Size(28, 25);
-            this.panel_Home.TabIndex = 7;
-            //
+            // 
+            // panel_NegLimit
+            // 
+            this.panel_NegLimit.BackColor = System.Drawing.Color.Red;
+            this.panel_NegLimit.Location = new System.Drawing.Point(480, 30);
+            this.panel_NegLimit.Name = "panel_NegLimit";
+            this.panel_NegLimit.Size = new System.Drawing.Size(28, 25);
+            this.panel_NegLimit.TabIndex = 9;
+            // 
             // lblNegLimit
-            //
+            // 
             this.lblNegLimit.AutoSize = true;
             this.lblNegLimit.Location = new System.Drawing.Point(476, 10);
             this.lblNegLimit.Name = "lblNegLimit";
             this.lblNegLimit.Size = new System.Drawing.Size(52, 15);
             this.lblNegLimit.TabIndex = 8;
             this.lblNegLimit.Text = "左限位";
-            //
-            // panel_NegLimit
-            //
-            this.panel_NegLimit.BackColor = System.Drawing.Color.Red;
-            this.panel_NegLimit.Location = new System.Drawing.Point(480, 30);
-            this.panel_NegLimit.Name = "panel_NegLimit";
-            this.panel_NegLimit.Size = new System.Drawing.Size(28, 25);
-            this.panel_NegLimit.TabIndex = 9;
-            //
+            // 
+            // panel_PosLimit
+            // 
+            this.panel_PosLimit.BackColor = System.Drawing.Color.Red;
+            this.panel_PosLimit.Location = new System.Drawing.Point(550, 30);
+            this.panel_PosLimit.Name = "panel_PosLimit";
+            this.panel_PosLimit.Size = new System.Drawing.Size(28, 25);
+            this.panel_PosLimit.TabIndex = 11;
+            // 
             // lblPosLimit
-            //
+            // 
             this.lblPosLimit.AutoSize = true;
             this.lblPosLimit.Location = new System.Drawing.Point(546, 10);
             this.lblPosLimit.Name = "lblPosLimit";
             this.lblPosLimit.Size = new System.Drawing.Size(52, 15);
             this.lblPosLimit.TabIndex = 10;
             this.lblPosLimit.Text = "右限位";
-            //
-            // panel_PosLimit
-            //
-            this.panel_PosLimit.BackColor = System.Drawing.Color.Red;
-            this.panel_PosLimit.Location = new System.Drawing.Point(550, 30);
-            this.panel_PosLimit.Name = "panel_PosLimit";
-            this.panel_PosLimit.Size = new System.Drawing.Size(28, 25);
-            this.panel_PosLimit.TabIndex = 11;
-            //
+            // 
             // btn_Interp
-            //
+            // 
             this.btn_Interp.Location = new System.Drawing.Point(820, 16);
             this.btn_Interp.Name = "btn_Interp";
             this.btn_Interp.Size = new System.Drawing.Size(110, 32);
@@ -873,14 +881,48 @@
             this.btn_Interp.Text = "插补运动";
             this.btn_Interp.UseVisualStyleBackColor = true;
             this.btn_Interp.Click += new System.EventHandler(this.btn_Interp_Click);
-            //
+            // 
             // timer1
-            //
-            this.timer1.Interval = 100;
+            // 
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
-            //
+            // 
+            // panel_Input
+            // 
+            this.panel_Input.BackColor = System.Drawing.Color.Red;
+            this.panel_Input.Location = new System.Drawing.Point(46, 380);
+            this.panel_Input.Name = "panel_Input";
+            this.panel_Input.Size = new System.Drawing.Size(28, 25);
+            this.panel_Input.TabIndex = 15;
+            // 
+            // panel_Output
+            // 
+            this.panel_Output.BackColor = System.Drawing.Color.Red;
+            this.panel_Output.Location = new System.Drawing.Point(198, 380);
+            this.panel_Output.Name = "panel_Output";
+            this.panel_Output.Size = new System.Drawing.Size(28, 25);
+            this.panel_Output.TabIndex = 16;
+            this.panel_Output.Click += new System.EventHandler(this.panel_Output_Click);
+             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(43, 358);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(37, 15);
+            this.label1.TabIndex = 17;
+            this.label1.Text = "输入";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(195, 358);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(37, 15);
+            this.label2.TabIndex = 18;
+            this.label2.Text = "输出";
+            // 
             // Form1
-            //
+            // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(948, 630);
@@ -998,5 +1040,9 @@
         private System.Windows.Forms.Label lblPosLimit;
         private System.Windows.Forms.Button btn_Interp;
         private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Panel panel_Output;
+        private System.Windows.Forms.Panel panel_Input;
     }
 }
